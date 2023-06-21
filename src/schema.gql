@@ -1,0 +1,45 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Character {
+  created: String!
+  episode: [Episode!]!
+  gender: String!
+  id: ID!
+  image: String!
+  name: String!
+  species: String!
+  status: String!
+  type: String!
+  url: String!
+}
+
+input CharacterInput {
+  gender: String
+  name: String
+  species: String
+  status: String
+  type: String
+}
+
+type Episode {
+  air_date: String!
+  created: String!
+  episode: String!
+  id: ID!
+  name: String!
+  url: String!
+}
+
+type Mutation {
+  updateCharacterById(data: CharacterInput, id: Float!): Character!
+  updateEpisodeById(id: Float!): Episode!
+}
+
+type Query {
+  character: [Character!]!
+  characterById(id: Float!): Character!
+  episode: [Episode!]!
+  episodeById(id: Float!): Episode!
+}
