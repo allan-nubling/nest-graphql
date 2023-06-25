@@ -15,14 +15,6 @@ type Character {
   url: String!
 }
 
-input CharacterInput {
-  gender: String
-  name: String
-  species: String
-  status: String
-  type: String
-}
-
 type Episode {
   air_date: String!
   created: String!
@@ -32,14 +24,37 @@ type Episode {
   url: String!
 }
 
+input InsertSimpleDataInput {
+  birthDate: String!
+  gender: String!
+  name: String!
+}
+
 type Mutation {
-  updateCharacterById(data: CharacterInput, id: Float!): Character!
+  insertSimpleData(data: InsertSimpleDataInput!): SimpleData!
   updateEpisodeById(id: Float!): Episode!
+  updateSimpleData(data: UpdateSimpleDataInput!): SimpleData!
 }
 
 type Query {
   character: [Character!]!
-  characterById(id: Float!): Character!
+  characterById(id: Int!): Character!
   episode: [Episode!]!
   episodeById(id: Float!): Episode!
+  getSimpleData(id: String!): SimpleData!
+  listSimpleData: [SimpleData!]!
+}
+
+type SimpleData {
+  birthDate: String!
+  gender: String!
+  id: String!
+  name: String!
+}
+
+input UpdateSimpleDataInput {
+  birthDate: String
+  gender: String
+  id: String!
+  name: String
 }

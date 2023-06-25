@@ -2,9 +2,9 @@ import {
     Query,
     Resolver,
     Args,
-    Mutation,
     ResolveProperty,
-    Parent
+    Parent,
+    Int
 } from '@nestjs/graphql'
 
 import { Episode } from '../episode/episode.model'
@@ -14,7 +14,6 @@ import {
     CharacterResponseDTO,
     ListCharacterResponseDTO
 } from './character-response.dto'
-import { CharacterInput } from './character.input'
 import { Character } from './character.model'
 
 @Resolver(_of => Character)
@@ -31,22 +30,13 @@ export class CharacterResolver {
     }
 
     @Query(_returns => Character)
-    async characterById(@Args('id') id: number, @Headers() headers) {
+    async characterById(
+        @Args('id', { type: () => Int }) id: number,
+        @Headers() headers
+    ) {
         const res = await this.httpClient.get<CharacterResponseDTO>(
             `https://rickandmortyapi.com/api/character/${id}`,
             { headers }
-        )
-        return res
-    }
-
-    @Mutation(_returns => Character)
-    async updateCharacterById(
-        @Args('id') id: number,
-        @Args('data', { nullable: true }) data?: CharacterInput
-    ) {
-        console.log({ data })
-        const res = await this.httpClient.get<CharacterResponseDTO>(
-            `https://rickandmortyapi.com/api/character/${id}`
         )
         return res
     }

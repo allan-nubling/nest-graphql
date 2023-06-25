@@ -28,12 +28,16 @@
     "@nestjs/core": "^9.0.0",
     "@nestjs/graphql": "^10.1.7",
     "@nestjs/platform-express": "^9.0.0",
+    "add": "^2.0.6",
     "apollo-server-express": "^3.11.1",
     "graphql": "^16.6.0",
     "jwt-decode": "^3.1.2",
+    "node-json-db": "^2.2.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "uuid": "^9.0.0",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@golevelup/ts-jest": "^0.3.4",

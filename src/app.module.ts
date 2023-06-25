@@ -10,6 +10,7 @@ import { EpisodeModule } from './modules/episode/episode.module'
 import { EventsModule } from './modules/events/events.module'
 import { defaultConfig } from './modules/shared/config/default.config'
 import { SharedModule } from './modules/shared/shared.module'
+import { SimpleDataModule } from './modules/simple-data/simple-data.module'
 
 @Module({
     imports: [
@@ -27,6 +28,7 @@ import { SharedModule } from './modules/shared/shared.module'
         }),
         CharacterModule,
         EpisodeModule,
+        SimpleDataModule,
         SharedModule,
         EventsModule
     ]
